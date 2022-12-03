@@ -9,7 +9,7 @@ Created on Thu Dec  1 10:39:03 2022
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
 from PyQt5 import uic
-from PyQt5.QtCore import QCoreApplication
+from PyQt5.QtCore import QCoreApplication, QDate
 import sys  # We need sys so that we can pass argv to QApplication
 import numpy as np
 import matplotlib.pyplot as plt
@@ -41,11 +41,11 @@ class SSSClass(QMainWindow, sss_class):
         self.btn_reset.clicked.connect(self.btnResetFunction)
         self.btn_plus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=1))   #매개변수있으면 lambda
         self.btn_minus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=-1))
-        #self.dateEdit.dateChanged.connect()
-    
+        self.dateEdit.dateChanged.connect(self.dateEditFunction)
+        self.dateEdit.setDate(QDate.currentDate())
 # =============================================================================
 # FUNCTION
-    def plotSolarSystem(self, n=0):
+    def plotSolarSystem(self, yyyy=0,mm=0,dd=0,n=0):
         #if redraw is True:
         self.graph_verticalLayout.removeWidget(self.canvas)
         #self.ax.clear()
@@ -67,7 +67,7 @@ class SSSClass(QMainWindow, sss_class):
         for r in np.arange(1,17,2):
             ax.plot(r*x_c, r*y_c, color="gray")
 # =============================================================================
-        (xs,ys)=self.ss.getXnY(n=n)         
+        (xs,ys)=self.ss.getXnY(n=n, yyyy=yyyy, mm=mm, dd=dd)         
         for x, y, path in zip(xs, ys, self.ss.getPath()):
             ab = AnnotationBbox(getImage(path,self.ss.getZoom()), (x, y), frameon=False)
             ax.add_artist(ab)
@@ -85,6 +85,13 @@ class SSSClass(QMainWindow, sss_class):
         self.n += step
         self.plotSolarSystem(n=self.n)
         
+    def dateEditFunction(self):
+        #date = QDate.currentDate()
+        date = self.dateEdit.date()
+        self.plotSolarSystem(yyyy=date.year(),mm=date.month(),dd=date.day())
+        print(date.year(), date.month(), date.day())
+        
+#        self.plotSolarSystem(yyyy=)
 # =============================================================================
 # close 이벤트
 #     def closeEvent(self, event):
