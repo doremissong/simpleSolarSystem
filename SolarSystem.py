@@ -20,13 +20,14 @@ from datetime import date, timedelta
 class SolarSystem:
     def __init__(self):
         
-        self.planet_list = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter','Saturn','Uranus','Neptune']
+        self.planet_list = ['Sun','Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter','Saturn','Uranus','Neptune']
         self.info_ss = np.loadtxt('SOLARSYSTEM.csv', delimiter=',', usecols=range(13))
         self.planet_info = self.info_ss[1:]
 
-        self.paths = ['image/mercury.jpg', 'image/venus.jpg', 'image/earth.jpg', 'image/mars.jpg',
+        self.planet_paths = ['image/sun.jpg','image/mercury.jpg', 'image/venus.jpg', 'image/earth.jpg', 'image/mars.jpg',
                  'image/jupiter.jpg', 'image/saturn.jpg', 'image/uranus.jpg', 'image/neptune.jpg']
-        self.zoom = 1/7  #image marker 비율
+
+        self.zoom = 1/10  #image marker 비율
         
         self.theta_earth = 360/365.2 
         self.dtime = date.today()
@@ -43,8 +44,8 @@ class SolarSystem:
         return self.planet_list
     def getPlanetInfo(self):
         return self.planet_info
-    def getPath(self):
-        return self.paths
+    def getPaths(self):
+        return self.planet_paths
     
     def setTime(self, yyyy=0,mm=0,dd=0,n=0):
         if yyyy==0:
@@ -65,9 +66,11 @@ class SolarSystem:
     
     def getXnY(self, yyyy=0,mm=0,dd=0,n=0):
         (angle_earth, angle) = self.setTime(yyyy, mm, dd, n)
-        Radius = np.arange(1,17,2)
+        Radius = np.arange(2,18,2)
         Xs = [r*cos(np.deg2rad(180+angle_earth),a) for r, a in zip(Radius, angle)]
         Ys = [r*sin(np.deg2rad(180+angle_earth),a) for r, a in zip(Radius, angle)]
+        Xs.insert(0, 0)
+        Ys.insert(0, 0)
         return (Xs, Ys)
 
     
@@ -90,7 +93,7 @@ if __name__ == '__main__':
     a = np.linspace(0,2*np.pi, 1000)
     x_c = np.sin(a)
     y_c = np.cos(a)
-    for r in np.arange(1,17,2):
+    for r in np.arange(2,18,2):
         plt.plot(r*x_c, r*y_c, color="gray")    # -- 궤도 그리기
     
     for this_planet, x,y in zip(ss.getPlanetList(), xs, ys):

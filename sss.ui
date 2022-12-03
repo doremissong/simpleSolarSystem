@@ -280,6 +280,8 @@ font: 20pt &quot;fixedsys&quot;;</string>
    <container>1</container>
   </customwidget>
  </customwidgets>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
  <resources/>
  <connections/>
 </ui>

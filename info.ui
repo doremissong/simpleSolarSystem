@@ -44,9 +44,9 @@ QTextBrower{
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>0</y>
-      <width>209</width>
+      <width>1041</width>
       <height>71</height>
      </rect>
     </property>
@@ -89,6 +89,38 @@ QTextBrower{
        </property>
       </widget>
      </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_exit">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>EXIT</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -125,7 +157,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/earth.jpg</normaloff>image/earth.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -186,7 +218,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/jupiter.jpg</normaloff>image/jupiter.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -206,7 +238,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/venus.jpg</normaloff>image/venus.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -226,7 +258,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/mars.jpg</normaloff>image/mars.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -253,7 +285,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/neptune.jpg</normaloff>image/neptune.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -273,7 +305,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/uranus.jpg</normaloff>image/uranus.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -300,7 +332,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/mercury.jpg</normaloff>image/mercury.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -320,7 +352,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/saturn.jpg</normaloff>image/saturn.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -340,7 +372,7 @@ QTextBrower{
      <item row="1" column="0">
       <widget class="QLabel" name="label_sun">
        <property name="text">
-        <string>Solar</string>
+        <string>Sun</string>
        </property>
       </widget>
      </item>
@@ -378,6 +410,31 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Ring System : True&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Global Magnetic Field : False&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;amp;blogId=smilewhj&amp;amp;logNo=221066089544&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;「Python : PyQt5」 QTextBrowser : 네이버 블로그 (naver.com)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>130</y>
+      <width>220</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string> &lt; Sun and Planets &gt;</string>
     </property>
    </widget>
   </widget>

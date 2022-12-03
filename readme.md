@@ -24,3 +24,6 @@ astropy?
 
 행성 정보
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/index.html
+
+# 마우스로 윈도우 이동
+https://mr-doosun.tistory.com/26
