@@ -6,8 +6,7 @@ Created on Wed Nov 30 22:47:23 2022
 """
 # =============================================================================
 # 
-# 여기서 각도로 좌표 계산하고. 그 각도에 주기/n을 더해서 위치 조절해야할 듯
-# 매번 그날 
+# 이름을 simple solar System으로 바꿀까
 # =============================================================================
 
 import matplotlib.pyplot as plt
@@ -24,8 +23,8 @@ class SolarSystem:
         self.info_ss = np.loadtxt('SOLARSYSTEM.csv', delimiter=',', usecols=range(13))
         self.planet_info = self.info_ss[1:]
 
-        self.planet_paths = ['image/sun.jpg','image/mercury.jpg', 'image/venus.jpg', 'image/earth.jpg', 'image/mars.jpg',
-                 'image/jupiter.jpg', 'image/saturn.jpg', 'image/uranus.jpg', 'image/neptune.jpg']
+        self.planet_paths = ['image/sun.png','image/mercury.png', 'image/venus.png', 'image/earth.png', 'image/mars.png',
+                 'image/jupiter.png', 'image/saturn.png', 'image/uranus.png', 'image/neptune.png']
 
         self.zoom = 1/10  #image marker 비율
         
@@ -40,12 +39,54 @@ class SolarSystem:
         return self.zoom
     def getThetaEarth(self):
         return self.theta_earth
-    def getPlanetList(self):
-        return self.planet_list
-    def getPlanetInfo(self):
-        return self.planet_info
+    def getPlanetList(self, n=0):
+        return self.planet_list[n:]
     def getPaths(self):
         return self.planet_paths
+    
+# !!!! 수정!!!!
+    def getSunInfo(self):
+        sun = self.planet_list[0]
+        info = self.info_ss[0]
+        
+        info_str=(f"\nName : {sun}\n\n\
+Mass : {info[0]} x 10^24 kg\n\n\
+Diameter : {info[1]} x 10^6 km\n\n\
+Density : {info[2]} kg/m^3\n\n\
+Gravity : {info[3]} m/s^2\n\n\
+Length of Day : {info[4]} h\n\n\
+Orbital Period : {info[6]} days\n\n\
+Axial tilt :  {info[8]}°\n\n\
+Mean Temperature : {info[9]}°C\n\n\
+Number of planets : {int(info[10])}\n\
+=========================")
+        return info_str
+    
+
+
+# !! True False를 Yes No 로
+    def getPlanetInfo(self, num):
+        planet = self.planet_list[num+1]
+        info = self.info_ss[num+1]
+        
+        info_str=(f"\nName : {planet}\n\n\
+Mass : {info[0]} x 10^24 kg\n\n\
+Diameter : {info[1]} x 10^6 km\n\n\
+Density : {info[2]} kg/m^3\n\n\
+Gravity : {info[3]} m/s^2\n\n\
+Length of Day : {info[4]} h\n\n\
+Distance from Sun : {info[5]} km\n\n\
+Orbital Period : {info[6]} days\n\n\
+Orbital Eccentricity : {info[7]}°\n\n\
+Axial tilt :  {info[8]}°\n\n\
+Mean Temperature : {info[9]}\n\n\
+Number of Moons : {int(info[10])}\n\n\
+=========================\n")
+        info_str += "Ring System : Yes\n\n" if info[11] else "Ring System : No\n\n"
+        info_str += "Global Magnetic Field : Yes\n\n" if info[12] else "Global Magnetic Field : No\n\n"
+        return info_str
+    
+    
     
     def setTime(self, yyyy=0,mm=0,dd=0,n=0):
         if yyyy==0:
@@ -57,7 +98,7 @@ class SolarSystem:
         dt = (self.dtime - date(self.dtime.year,3,22)).days   ##-- n계산 일수 계산
         angle_earth = dt * self.getThetaEarth() #
         
-        planet_coord = [get_body_heliographic_stonyhurst(this_planet, time=astro_time) for this_planet in self.getPlanetList()]
+        planet_coord = [get_body_heliographic_stonyhurst(this_planet, time=astro_time) for this_planet in self.getPlanetList(1)]
         angle = [this_coord.lon for this_coord in planet_coord]  # 오늘, 지구 기준 좌표
         return (angle_earth, angle)
     
@@ -79,6 +120,8 @@ def cos(alpha, beta):   # cos(x+y) = cos(x)cos(y)-sin(x)sin(y)
 def sin(alpha, beta):   # sin(x+y)=sin(x)cos(y)+cos(x)sin(y)
     return (np.sin(alpha)*np.cos(beta)+np.cos(alpha)*np.sin(beta))
 
+
+# --------------------------------------------------------------------------------------------
 if __name__ == '__main__':
     ss = SolarSystem()
     (xs, ys) = ss.getXnY(n=-11)
@@ -105,6 +148,7 @@ if __name__ == '__main__':
     # TEST
     # #print(type(getTime()))
     print(ss.dtime)
+    #print(ss.getPlanetInfo(3))
     
     # for planet, info in zip(ss.getPlanetList(), ss.getPlanetInfo()):
     #     print(f"Name : {planet}\n\
@@ -126,6 +170,12 @@ if __name__ == '__main__':
 # =============================================================================
 # No MORE USE
 # =============================================================================
+
+
+# x : {info[5]} km\n\n\
+# x : {info[7]}°\n\
+# x : {bool(info[10])}\n\
+# x : {bool(info[11])}\n\
 
 # dt(날짜수)* 지구 이동 각도(춘분점기준) == 지구 위치
 #print(f"{dt} * {theta_earth} = {dt*theta_earth}")

@@ -41,10 +41,29 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(128, 128, 128);
+   <string notr="true">QMainWindow{
+background-color: rgb(128, 128, 128);
 color: rgb(255, 255, 255);
 font: 50pt &quot;fixedsys&quot;;
+}
 
+QWidget{
+background-color: rgb(128, 128, 128);
+color: rgb(255, 255, 255);
+font: 50pt &quot;fixedsys&quot;;
+}
+
+QWidget. QPushButton{
+background-color: rgb(128, 128, 128);
+color: rgb(255, 255, 255);
+font: 50pt &quot;fixedsys&quot;;
+}
+
+QWidget. QPushButton:pressed {
+background-color: rgb(211,211,211)
+color: rgb(255, 255, 255);
+font: 50pt &quot;fixedsys&quot;;
+}
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -133,7 +152,7 @@ font: 50pt &quot;fixedsys&quot;;
          </font>
         </property>
         <property name="toolTip">
-         <string>Simple Solar System</string>
+         <string/>
         </property>
         <property name="text">
          <string>Simple Solar System</string>
@@ -168,6 +187,9 @@ font: 50pt &quot;fixedsys&quot;;
           <italic>false</italic>
           <bold>false</bold>
          </font>
+        </property>
+        <property name="toolTip">
+         <string/>
         </property>
         <property name="text">
          <string>Info</string>

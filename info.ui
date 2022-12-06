@@ -44,13 +44,13 @@ QTextBrower{
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>0</y>
+      <x>10</x>
+      <y>30</y>
       <width>1041</width>
       <height>71</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0">
      <item>
       <widget class="QPushButton" name="btn_home">
        <property name="minimumSize">
@@ -138,12 +138,18 @@ QTextBrower{
        <property name="text">
         <string>Venus</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item row="6" column="0">
       <widget class="QLabel" name="label_saturn">
        <property name="text">
         <string>Saturn</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -157,7 +163,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/earth.jpg</normaloff>image/earth.jpg</iconset>
+         <normaloff>image/earth.png</normaloff>image/earth.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -177,7 +183,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>res_rc/file/solar.png</normaloff>res_rc/file/solar.png</iconset>
+         <normaloff>image/sun.png</normaloff>image/sun.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -192,6 +198,9 @@ QTextBrower{
        <property name="text">
         <string>Earth</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item row="4" column="1">
@@ -199,12 +208,18 @@ QTextBrower{
        <property name="text">
         <string>Mars</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item row="6" column="2">
       <widget class="QLabel" name="label_neptune">
        <property name="text">
         <string>Neptune</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -218,7 +233,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/jupiter.jpg</normaloff>image/jupiter.jpg</iconset>
+         <normaloff>image/jupiter.png</normaloff>image/jupiter.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -238,7 +253,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/venus.jpg</normaloff>image/venus.jpg</iconset>
+         <normaloff>image/venus.png</normaloff>image/venus.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -258,7 +273,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/mars.jpg</normaloff>image/mars.jpg</iconset>
+         <normaloff>image/mars.png</normaloff>image/mars.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -273,6 +288,9 @@ QTextBrower{
        <property name="text">
         <string>Jupiter</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item row="5" column="2">
@@ -285,7 +303,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/neptune.jpg</normaloff>image/neptune.jpg</iconset>
+         <normaloff>image/neptune.png</normaloff>image/neptune.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -305,7 +323,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/uranus.jpg</normaloff>image/uranus.jpg</iconset>
+         <normaloff>image/uranus.png</normaloff>image/uranus.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -320,6 +338,9 @@ QTextBrower{
        <property name="text">
         <string>Uranus</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item row="0" column="1">
@@ -332,7 +353,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/mercury.jpg</normaloff>image/mercury.jpg</iconset>
+         <normaloff>image/mercury.png</normaloff>image/mercury.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -352,7 +373,7 @@ QTextBrower{
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>image/saturn.jpg</normaloff>image/saturn.jpg</iconset>
+         <normaloff>image/saturn.png</normaloff>image/saturn.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -367,12 +388,18 @@ QTextBrower{
        <property name="text">
         <string>Mercury</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_sun">
        <property name="text">
         <string>Sun</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -381,7 +408,7 @@ QTextBrower{
    <widget class="QTextBrowser" name="infoBrowser">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>570</x>
       <y>170</y>
       <width>571</width>
       <height>561</height>
@@ -437,16 +464,43 @@ p, li { white-space: pre-wrap; }
      <string> &lt; Sun and Planets &gt;</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1100</width>
-     <height>26</height>
-    </rect>
-   </property>
+   <widget class="QLabel" name="Bar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>1050</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>fixedsys</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

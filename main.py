@@ -38,7 +38,6 @@ class MainClass(QMainWindow, main_class):
         self.setWindowIcon(QIcon('icon_buzz.png'))
         self.setWindowFlag(Qt.FramelessWindowHint)
         
-        
         self.btn_SSS.clicked.connect(self.btnSSSFunction)
         self.btn_info.clicked.connect(self.btnInfoFunction)
         self.btn_exit.clicked.connect(self.btnExitFunction)
@@ -105,8 +104,6 @@ class SSSClass(QMainWindow, sss_class):
         self.ss = SolarSystem()
         
         self.btn_home.clicked.connect(self.btnHomeFunction)
-       
-        # self.btn_home.clicked.connect()
         self.btn_reset.clicked.connect(self.btnResetFunction)
         self.btn_plus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=1))   #매개변수있으면 lambda
         self.btn_minus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=-1))
@@ -137,7 +134,7 @@ class SSSClass(QMainWindow, sss_class):
         self.graph_verticalLayout.removeWidget(self.canvas)
         #self.ax.clear()
         self.fig = plt.Figure(facecolor='black',figsize=(8,2))     #facecolor='black'
-        self.fig.patch.set_alpha(0)
+        #self.fig.patch.set_alpha(0)
         
         self.canvas = FigureCanvas(self.fig)
         
@@ -212,9 +209,7 @@ class InfoClass(QMainWindow, info_class):
         self.setWindowIcon(QIcon('icon_buzz.png'))
         self.setWindowFlag(Qt.FramelessWindowHint)
         
-        
         self.ss = SolarSystem()
-        self.getSolarSystemInfo()
         
         self.btn_home.clicked.connect(self.btnHomeFunction)
         self.btn_more.clicked.connect(lambda: webbrowser.open('https://solarsystem.nasa.gov/solar-system/our-solar-system/overview/'))
@@ -240,49 +235,11 @@ class InfoClass(QMainWindow, info_class):
         self.close()
     
     def btnSunFunction(self):
-        # f -string format
-
-        info_str=("\n\nName : { }\n\
-Mass : { } x 10^24 kg\n\
-Diameter : { } x 10^6 km\n\
-Density : { } kg/m^3\n\
-Gravity : { } m/s^2\n\
-Length of Day : { } h\n\
-Distance from Sun : { } km\n\
-Orbital Period : { } days\n\
-Orbital Eccentricity : { }°\n\
-Axial tilt :  { }°\n\
-Mean Temperature : { }°C\n\
-Number of Moons : { }\n\
-Ring System : { }\n\
-Global Magnetic Field : { }\n\
-=========================")
+        info_str=self.ss.getSunInfo()
         self.infoBrowser.setPlainText(info_str)
         
-    def getSolarSystemInfo(self):
-        self.planet_list = self.ss.getPlanetList()
-        self.info_ss = self.ss.getPlanetInfo()
-        planet_info = self.info_ss[1:]
-        
     def btnPlanetFunction(self, num):
-        planet = self.planet_list[num]
-        info = self.info_ss[num]
-    
-        info_str=(f"\n\nName : {planet}\n\
-Mass : {info[0]} x 10^24 kg\n\
-Diameter : {info[1]} x 10^6 km\n\
-Density : {info[2]} kg/m^3\n\
-Gravity : {info[3]} m/s^2\n\
-Length of Day : {info[4]} h\n\
-Distance from Sun : {info[5]} km\n\
-Orbital Period : {info[6]} days\n\
-Orbital Eccentricity : {info[7]}°\n\
-Axial tilt :  {info[8]}°\n\
-Mean Temperature : {info[9]}°C\n\
-Number of Moons : {int(info[10])}\n\
-Ring System : {bool(info[10])}\n\
-Global Magnetic Field : {bool(info[11])}\n\
-=========================")
+        info_str = self.ss.getPlanetInfo(num)
         self.infoBrowser.setPlainText(info_str)
 
     # MOUSE Click drag EVENT function
@@ -322,14 +279,4 @@ if __name__ == "__main__":
     mainWindow.show()
     
     app.exec()
-    
-    
-# =============================================================================
-# app = QApplication(sys.argv)
-# 
-# w = WindowClass()
-# 
-# w.show()
-# 
-# app.exec()
-# =============================================================================
+

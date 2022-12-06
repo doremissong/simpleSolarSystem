@@ -1,10 +1,15 @@
-# THE SOLAR SYSTEM
+# SIMPLE SOLAR SYSTEM
 Our solar system is made up of 8 planets.
 ---
 
 ; PyQt5와 matplotlib을 이용해서 간단한 태양계 모형을 만들어보았습니다.
 astropy?
-
+sunpy
+----------------------------------
+|	  동지점	         	|
+| 춘분점		  추분점 	|
+|	  하지점             	|
+----------------------------------
 !(main window)[url] 
 - simple solar system | info | exit 버튼
 -
@@ -12,7 +17,6 @@ astropy?
 !(sss window)[url]
 - HOME 버튼, RESET 버튼, (+,-), 날짜?시간 조절바, 달력을 통해 날짜
 - 
-- +,- 를 통해 확대를 하지 말까?
 
 
 !(info window)[url]

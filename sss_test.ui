@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SWindow</class>
- <widget class="QMainWindow" name="SWindow">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -54,8 +54,8 @@ font: 20pt &quot;fixedsys&quot;;
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
+      <x>20</x>
+      <y>30</y>
       <width>1041</width>
       <height>52</height>
      </rect>
@@ -221,10 +221,10 @@ font: 20pt &quot;fixedsys&quot;;
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>-80</x>
-      <y>110</y>
-      <width>851</width>
-      <height>771</height>
+      <x>40</x>
+      <y>120</y>
+      <width>711</width>
+      <height>641</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="graph_verticalLayout">
@@ -242,7 +242,7 @@ font: 20pt &quot;fixedsys&quot;;
    <widget class="QWidget" name="formLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>810</x>
       <y>370</y>
       <width>144</width>
       <height>373</height>
@@ -438,7 +438,7 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/sun.jpg</pixmap>
+        <pixmap>image/sun.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -469,43 +469,7 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/mercury.jpg</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_20">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>35</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>35</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLabel{
-	background-color: rgb(0,0,0);
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>image/venus.jpg</pixmap>
+        <pixmap>image/mercury.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -536,7 +500,7 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/earth.jpg</pixmap>
+        <pixmap>image/earth.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -567,7 +531,7 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/mars.jpg</pixmap>
+        <pixmap>image/mars.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -598,7 +562,7 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/jupiter.jpg</pixmap>
+        <pixmap>image/jupiter.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -629,7 +593,7 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/saturn.jpg</pixmap>
+        <pixmap>image/saturn.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -660,7 +624,7 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/uranus.jpg</pixmap>
+        <pixmap>image/uranus.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -691,7 +655,38 @@ font: 20pt &quot;fixedsys&quot;;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>image/neptune.jpg</pixmap>
+        <pixmap>image/neptune.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_27">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>image/venus.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -699,6 +694,191 @@ font: 20pt &quot;fixedsys&quot;;
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="Bar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>1070</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>fixedsys</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>360</y>
+      <width>150</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>150</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>fixedsys</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>760</y>
+      <width>150</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>150</width>
+      <height>2</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>fixedsys</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>360</y>
+      <width>2</width>
+      <height>400</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>400</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>2</width>
+      <height>400</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>fixedsys</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>360</y>
+      <width>2</width>
+      <height>400</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>400</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>2</width>
+      <height>400</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>fixedsys</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
