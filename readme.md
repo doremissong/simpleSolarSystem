@@ -41,16 +41,19 @@ sunpy
 | 춘분점		  추분점 	|
 |	  하지점             	|
 ----------------------------------
-!(main window)[url] 
+
+![equinox](https://github.com/doremissong/simpleSolarSystem.equinox.png)
+
+![main window](url) 
 - simple solar system | info | exit 버튼
 -
 
-!(sss window)[url]
+![sss window](url)
 - HOME 버튼, RESET 버튼, (+,-), 날짜?시간 조절바, 달력을 통해 날짜
 - 
 
 
-!(info window)[url]
+![info window](url)
 - 각 이미지 버튼이 있고, 누르면 설명을 보여줌
 
 !(exit)[url] 종료 버튼을 누르면 이렇게 됨
