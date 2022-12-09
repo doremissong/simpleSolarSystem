@@ -38,7 +38,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Simple Solar System</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow{

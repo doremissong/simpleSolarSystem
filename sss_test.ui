@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Simple Solar System</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(128, 128, 128);

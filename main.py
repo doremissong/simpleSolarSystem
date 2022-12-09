@@ -20,7 +20,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QMouseEvent, QCursor
 
 
-from SolarSystem import SolarSystem
+from SimpleSolarSystem import SimpleSolarSystem
 import webbrowser
 # ----------------------------------------------------
 
@@ -35,14 +35,12 @@ class MainClass(QMainWindow, main_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowIcon(QIcon('icon_buzz.png'))
-        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setWindowIcon(QIcon('image/earth.png'))
         
         self.btn_SSS.clicked.connect(self.btnSSSFunction)
         self.btn_info.clicked.connect(self.btnInfoFunction)
         self.btn_exit.clicked.connect(self.btnExitFunction)
 
-            
     def btnSSSFunction(self):
         print("move to the Simple Solar System window")
         self.w = SSSClass()
@@ -68,40 +66,23 @@ class MainClass(QMainWindow, main_class):
         self.close()
         
     def closeEvent(self, event):
-        message = QMessageBox.question(self, "Exit-이름", "Are you sure you want to quit?",
+        message = QMessageBox.question(self, "Simple Solar System", "Are you sure you want to quit?",
                                        QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if message == QMessageBox.Yes:
             event.accept()
         else:
             event.ignore()
-
-    # MOUSE Click drag EVENT function
-    def mousePressEvent(self, event):
-        if event.button()==Qt.LeftButton:
-            self.m_flag=True
-            self.m_Position=event.globalPos()-self.pos() #Get the position of the mouse relative to the window
-            event.accept()
-            self.setCursor(QCursor(Qt.OpenHandCursor))  #Change mouse icon
-    
-    def mouseMoveEvent(self, QMouseEvent):
-        if Qt.LeftButton and self.m_flag:  
-            self.move(QMouseEvent.globalPos()-self.m_Position)#Change window position
-            QMouseEvent.accept()
-    
-    def mouseReleaseEvent(self, QMouseEvent):
-        self.m_flag=False
-        self.setCursor(QCursor(Qt.ArrowCursor))
+            
 
 class SSSClass(QMainWindow, sss_class): 
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowIcon(QIcon('icon_buzz.png'))
-        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setWindowIcon(QIcon('image/earth.png'))
    
         self.fig = plt.Figure(facecolor='black')
         self.canvas = FigureCanvas(self.fig)
-        self.ss = SolarSystem()
+        self.ss = SimpleSolarSystem()
         
         self.btn_home.clicked.connect(self.btnHomeFunction)
         self.btn_reset.clicked.connect(self.btnResetFunction)
@@ -127,14 +108,11 @@ class SSSClass(QMainWindow, sss_class):
         date = self.dateEdit.date()
         if check:
             self.plotSolarSystem(yyyy=date.year(),mm=date.month(),dd=date.day())
-# =============================================================================
-# FUNCTION
+            
     def plotSolarSystem(self, yyyy=0,mm=0,dd=0):
         
         self.graph_verticalLayout.removeWidget(self.canvas)
-        #self.ax.clear()
-        self.fig = plt.Figure(facecolor='black',figsize=(8,2))     #facecolor='black'
-        #self.fig.patch.set_alpha(0)
+        self.fig = plt.Figure(facecolor='black',figsize=(8,2))
         
         self.canvas = FigureCanvas(self.fig)
         
@@ -146,7 +124,6 @@ class SSSClass(QMainWindow, sss_class):
         ax.set_ylim(-17,17)
         ax.set_aspect('equal')
         ax.margins(0,0)
-        #ax.axis('off')                         # 축 제거
         ax.axes.get_xaxis().set_visible(False)
         ax.axes.get_yaxis().set_visible(False)
         ax.patch.set_facecolor('#000000')
@@ -167,30 +144,9 @@ class SSSClass(QMainWindow, sss_class):
     def btnExitFunction(self, event):
         print("EXIT ;)")
         self.close()
-    
-    # MOUSE Click drag EVENT function
-    def mousePressEvent(self, event):
-        if event.button()==Qt.LeftButton:
-            self.m_flag=True
-            self.m_Position=event.globalPos()-self.pos() #Get the position of the mouse relative to the window
-            event.accept()
-            self.setCursor(QCursor(Qt.OpenHandCursor))  #Change mouse icon
-    
-    def mouseMoveEvent(self, QMouseEvent):
-        if Qt.LeftButton and self.m_flag:  
-            self.move(QMouseEvent.globalPos()-self.m_Position)#Change window position
-            QMouseEvent.accept()
-    
-    def mouseReleaseEvent(self, QMouseEvent):
-        self.m_flag=False
-        self.setCursor(QCursor(Qt.ArrowCursor))
-# =============================================================================
-        
-# close 이벤트
-# =============================================================================
 
     def closeEvent(self, event):
-        message = QMessageBox.question(self, "Exit-이름", "Are you sure you want to quit?",
+        message = QMessageBox.question(self, "Simple Solar System", "Are you sure you want to quit?",
                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if message == QMessageBox.Yes:
             event.accept()
@@ -206,10 +162,9 @@ class InfoClass(QMainWindow, info_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowIcon(QIcon('icon_buzz.png'))
-        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setWindowIcon(QIcon('image/earth.png'))
         
-        self.ss = SolarSystem()
+        self.ss = SimpleSolarSystem()
         
         self.btn_home.clicked.connect(self.btnHomeFunction)
         self.btn_more.clicked.connect(lambda: webbrowser.open('https://solarsystem.nasa.gov/solar-system/our-solar-system/overview/'))
@@ -242,33 +197,16 @@ class InfoClass(QMainWindow, info_class):
         info_str = self.ss.getPlanetInfo(num)
         self.infoBrowser.setPlainText(info_str)
 
-    # MOUSE Click drag EVENT function
-    def mousePressEvent(self, event):
-        if event.button()==Qt.LeftButton:
-            self.m_flag=True
-            self.m_Position=event.globalPos()-self.pos() #Get the position of the mouse relative to the window
-            event.accept()
-            self.setCursor(QCursor(Qt.OpenHandCursor))  #Change mouse icon
-    
-    def mouseMoveEvent(self, QMouseEvent):
-        if Qt.LeftButton and self.m_flag:  
-            self.move(QMouseEvent.globalPos()-self.m_Position)#Change window position
-            QMouseEvent.accept()
-    
-    def mouseReleaseEvent(self, QMouseEvent):
-        self.m_flag=False
-        self.setCursor(QCursor(Qt.ArrowCursor))
         
 # CLOSE EVENT
 
     def closeEvent(self, event):
-        message = QMessageBox.question(self, "Exit-이름", "Are you sure you want to quit?",
+        message = QMessageBox.question(self, "Simple Solar System", "Are you sure you want to quit?",
                                        QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if message == QMessageBox.Yes:
             event.accept()
         else:
             event.ignore()   
-            
             
     
 if __name__ == "__main__":
