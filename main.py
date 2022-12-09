@@ -20,8 +20,8 @@ import webbrowser
 # ----------------------------------------------------
 
 main_class = uic.loadUiType("main.ui")[0]
-sss_class = uic.loadUiType("sss.ui")[0]
-info_class = uic.loadUiType("info.ui")[0]
+sss_class = uic.loadUiType("sss_test.ui")[0]
+info_class = uic.loadUiType("info_test.ui")[0]
 
 # ----------------------------------------------------
 
@@ -82,7 +82,6 @@ class SSSClass(QMainWindow, sss_class):
         self.btn_minus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=-1))
         self.dateEdit.dateChanged.connect(lambda: self.dateEditFunction(True))
         self.dateEdit.setDate(QDate.currentDate())
-        self.btn_exit.clicked.connect(self.btnExitFunction)
         
     def btnHomeFunction(self):
         self.w=MainClass()
@@ -132,9 +131,6 @@ class SSSClass(QMainWindow, sss_class):
             ax.add_artist(ab)
         self.canvas.draw()
         return ax
-    
-    def btnExitFunction(self, event):
-        self.close()
 
     def closeEvent(self, event):
         message = QMessageBox.question(self, "Simple Solar System", "Are you sure you want to quit?",
@@ -154,12 +150,10 @@ class InfoClass(QMainWindow, info_class):
         super().__init__()
         self.setupUi(self)
         self.setWindowIcon(QIcon('image/earth.png'))
-        
         self.ss = SimpleSolarSystem()
         
         self.btn_home.clicked.connect(self.btnHomeFunction)
         self.btn_more.clicked.connect(lambda: webbrowser.open('https://solarsystem.nasa.gov/solar-system/our-solar-system/overview/'))
-        self.btn_exit.clicked.connect(self.btnExitFunction)   
         
         self.btn_sun.clicked.connect(self.btnSunFunction)
         self.btn_mercury.clicked.connect(lambda: self.btnPlanetFunction(0))
@@ -175,9 +169,6 @@ class InfoClass(QMainWindow, info_class):
         self.w = MainClass()
         self.hide()
         self.w.show()    
-    
-    def btnExitFunction(self, event):
-        self.close()
     
     def btnSunFunction(self):
         info_str=self.ss.getSunInfo()
