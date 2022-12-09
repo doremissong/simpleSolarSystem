@@ -8,24 +8,19 @@ Created on Sat Nov  5 18:01:07 2022
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
 from PyQt5 import uic
-from PyQt5.QtCore import QCoreApplication, QDate
+from PyQt5.QtCore import QDate # QCoreApplication,
 import sys  # We need sys so that we can pass argv to QApplication
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
-
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QMouseEvent, QCursor
-
-
 from SimpleSolarSystem import SimpleSolarSystem
 import webbrowser
 # ----------------------------------------------------
 
-main_class = uic.loadUiType("main2_horizontal.ui")[0]
-sss_class = uic.loadUiType("sss_test.ui")[0]
+main_class = uic.loadUiType("main.ui")[0]
+sss_class = uic.loadUiType("sss.ui")[0]
 info_class = uic.loadUiType("info.ui")[0]
 
 # ----------------------------------------------------
@@ -42,7 +37,6 @@ class MainClass(QMainWindow, main_class):
         self.btn_exit.clicked.connect(self.btnExitFunction)
 
     def btnSSSFunction(self):
-        print("move to the Simple Solar System window")
         self.w = SSSClass()
         if self.w.isVisible():
             self.w.hide()
@@ -52,7 +46,6 @@ class MainClass(QMainWindow, main_class):
             self.w.show()       
     
     def btnInfoFunction(self):
-        print("move to the Information window")
         self.w = InfoClass()
         if self.w.isVisible():
             self.w.hide()
@@ -62,7 +55,6 @@ class MainClass(QMainWindow, main_class):
             self.w.show() 
         
     def btnExitFunction(self, event):
-        print("EXIT ;)")
         self.close()
         
     def closeEvent(self, event):
@@ -119,7 +111,7 @@ class SSSClass(QMainWindow, sss_class):
         self.graph_verticalLayout.addWidget(self.canvas)
         self.graph_verticalLayout.setContentsMargins(0, 0, 0, 0)
     
-        ax = self.fig.add_subplot(111)  # 1행 1열로 나눈건 중 첫번재
+        ax = self.fig.add_subplot(111)
         ax.set_xlim(-17,17)
         ax.set_ylim(-17,17)
         ax.set_aspect('equal')
@@ -142,7 +134,6 @@ class SSSClass(QMainWindow, sss_class):
         return ax
     
     def btnExitFunction(self, event):
-        print("EXIT ;)")
         self.close()
 
     def closeEvent(self, event):
@@ -186,7 +177,6 @@ class InfoClass(QMainWindow, info_class):
         self.w.show()    
     
     def btnExitFunction(self, event):
-        print("EXIT ;)")
         self.close()
     
     def btnSunFunction(self):
@@ -196,9 +186,6 @@ class InfoClass(QMainWindow, info_class):
     def btnPlanetFunction(self, num):
         info_str = self.ss.getPlanetInfo(num)
         self.infoBrowser.setPlainText(info_str)
-
-        
-# CLOSE EVENT
 
     def closeEvent(self, event):
         message = QMessageBox.question(self, "Simple Solar System", "Are you sure you want to quit?",

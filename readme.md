@@ -1,71 +1,87 @@
 # SIMPLE SOLAR SYSTEM 
-Our solar system is made up of 8 planets.
+🌌🌞🌏🪐🌌
 ---
-1. 프로젝트 Description
 
-- 프로젝트 이름 및 설명
-
-
-simple인 이유는 굉장히 간단하게, 많은 것들이 생략되었기 때문스,,
+## 🌞 설명
+이름 : simple solar system
+설명 : 
 
 
 
-2. 프로젝트 정보
+날짜에 따라 행성들의 대략적인 위치를 알 수 있고,
+이를 통해 밤하늘에 행성의 위치를 대략적으로 파악할 수 있다.
+이름에 'simple'이 있는 것처럼, 각 행성들의 궤도는 원으로 그렸고, 거리도 임의로 일정하게 그렸다.
+많은 조건들이 생략되어서 실제 위치와는 오차가 있다.
 
-- 프로젝트 개발 환경 및 사용 기술
 
+![equinox](https://github.com/doremissong/simpleSolarSystem/blob/main/image/equinox.png)
+제대로 동작하는지 확인을 편하게 하기 위해서 애플 천체 배경화면과 동일하게 **위쪽을 동지점**으로 두었다.
+
+**sunpy**에서 얻을 수 있는 행성들의 정보는 해당 날짜에 지구에서 본 행성의 위치이기 때문에,
+춘분점에서 해당 날짜의 지구 위치만큼 모든 행성들을 이동시켜주었다
+
+main.py는 대부분 GUI와 관련된 내용이다.
+
+simpleSolarSystem.py
+; 행성들의 좌표, 날짜 계산 등을 한다.
  
+🌏 __언어 & 라이브러리__
+-- python (3.9)
+-- PyQt5 (5.15.7) - GUI
+-- matplotlib (3.5.2) - 그리기
+-- sunpy (4.1.0)  - 위치 정보
+-- astropy
+-- webbrowser
+-- datetime
+-- sys
 
-; PyQt5와 matplotlib을 이용해서 간단한 태양계 모형을 만들어보았습니다.
-pyqt5
-matplotlib
-astropy?
-sunpy
 
+## 🌞 프로젝트 결과물
 
-
-3. 프로젝트 결과물
-
-- 기능 [기능 흐름에 따라 / 기능 나열]
-
-- 결과 예시 화면
-
-일단 행성의 공전 궤도는 타원궤도이지만, 원으로 했고,
-거리도 임의로 일정하게 했다.
-그래서인지 해왕성이 역행? 무튼 공전 반대 방향으로 살짝 움직일 때도 있다.
-
-애플의 잠금화면을 많이 참고했다. (이미지 추가하기)
-제대로 동작하는지 등등
-----------------------------------
-|	  동지점	         	|
-| 춘분점		  추분점 	|
-|	  하지점             	|
-----------------------------------
-
-![equinox](https://github.com/doremissong/simpleSolarSystem.equinox.png)
-
-![main window](url) 
+🌏 main window
+![main window](https://github.com/doremissong/simpleSolarSystem/blob/main/image/mainWindow.gif) 
 - simple solar system | info | exit 버튼
 -
 
-![sss window](url)
-- HOME 버튼, RESET 버튼, (+,-), 날짜?시간 조절바, 달력을 통해 날짜
+🌏 sss window
+![sss window](https://github.com/doremissong/simpleSolarSystem/blob/main/image/sssWindow.gif)
+- HOME 버튼, RESET 버튼, (+,-), dateEdit 위젯
 - 
 
+🌏 info window
+![info window](https://github.com/doremissong/simpleSolarSystem/blob/main/image/infoWindow.gif)
+- 태양과 행성 버튼을 누르면 설명을 보여줍니다.
 
-![info window](url)
-- 각 이미지 버튼이 있고, 누르면 설명을 보여줌
-
-!(exit)[url] 종료 버튼을 누르면 이렇게 됨
+비교
+사진 
 
 
+🌏License
+이 프로젝트는 MIT 라이선스.
 
+🌏이미지는 직접 제작하였습니다.
  
 
-## 참고
+## 🌞 참고
 
-행성 정보
+PyQt5에 matplotlib 그래프를 그리는 방법 참고
+https://m.blog.naver.com/hjinha2/221839259540
+
+matplotlib image marker 참고
+https://www.tutorialspoint.com/how-to-use-a-custom-png-image-marker-in-a-plot-matplotlib
+
+PyQt5 사용방법
+https://wikidocs.net/37787
+
+행성, 태양 정보
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/index.html
+https://astro.kasi.re.kr/learning/pageView/5116
 
-# 마우스로 윈도우 이동
-https://mr-doosun.tistory.com/26
+애플 천체 배경화면
+태양계 모형이 제대로 동작하는지 확인하고, 방향을 잡을 때  애플의 천체 배경화면을 참고했다.
+
+
+---
+잡다
+
+태양계 모형을 만들어보고 싶었다.
