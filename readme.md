@@ -26,9 +26,9 @@
 ; 행성들의 좌표, 날짜 계산 등을 한다.  
    
 **그 외**    
-제대로 동작하는지 확인을 편하게 하기 위해서 애플 천체 배경화면과 동일하게 **위쪽을 동지점**으로 두었다. 
 ![equinox](https://github.com/doremissong/simpleSolarSystem/blob/main/image/equinox.png)   
   
+제대로 동작하는지 확인을 편하게 하기 위해서 애플 천체 배경화면처럼 **위쪽을 동지점**으로 두었다.  
 **sunpy**에서 얻을 수 있는 행성들의 정보는 해당 날짜에 지구에서 본 행성의 위치이기 때문에,  
 춘분점에서 해당 날짜의 지구 각도(춘분점기준)만큼 이동시켜주었다  
   
@@ -37,18 +37,18 @@
 ## 🌞 실행 결과
 
 #### 🌏 main window  
-![main window](https://github.com/doremissong/simpleSolarSystem/blob/main/image/main.png)  
+![main window](https://github.com/doremissong/simpleSolarSystem/blob/main/image/main.PNG)  
 - simple solar system, info, exit 버튼을 누르면 각각 태양계 모형과 정보를 보여주는 윈도우가 실행되고, 종료된다.  
 
 #### 🌏 sss window
 - RESET 버튼을 누르면 오늘 날짜로 돌아간다. 
 - <,> 버튼, dateEdit 위젯으로 날짜를 변경한다.  
 ![1년동안 모습](https://github.com/doremissong/simpleSolarSystem/blob/main/image/month.gif)  
-    -- 1년동안 모습
-![날짜가 바뀔 때 모습](https://github.com/doremissong/simpleSolarSystem/blob/main/image/day.gif)  
--- 날짜가 바뀔 때 모습
+    -- 1년동안 모습  
+![날짜가 바뀔 때 모습](https://github.com/doremissong/simpleSolarSystem/blob/main/image/day.gif)   
+-- 날짜가 바뀔 때 모습  
 ![연도가 바뀔 때 모습](https://github.com/doremissong/simpleSolarSystem/blob/main/image/year.gif)  
--- 연도가 바뀔 때 모습  
+-- 연도가 바뀔 때 모습   
 
 #### 🌏 info window
 ![info window](https://github.com/doremissong/simpleSolarSystem/blob/main/image/info.gif)
