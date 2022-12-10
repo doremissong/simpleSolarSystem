@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov  5 18:01:07 2022
-
-@author: 김미송
-"""
 
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
@@ -189,4 +183,3 @@ if __name__ == "__main__":
     mainWindow.show()
     
     app.exec()
-
