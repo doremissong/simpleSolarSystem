@@ -8,22 +8,18 @@ Created on Sat Nov  5 18:01:07 2022
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
 from PyQt5 import uic
-from PyQt5.QtCore import QDate # QCoreApplication,
-import sys  # We need sys so that we can pass argv to QApplication
+from PyQt5.QtCore import QDate
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-
 from SimpleSolarSystem import SimpleSolarSystem
 import webbrowser
-# ----------------------------------------------------
 
 main_class = uic.loadUiType("main.ui")[0]
-sss_class = uic.loadUiType("sss_test.ui")[0]
-info_class = uic.loadUiType("info_test.ui")[0]
-
-# ----------------------------------------------------
+sss_class = uic.loadUiType("sss.ui")[0]
+info_class = uic.loadUiType("info.ui")[0]
 
 class MainClass(QMainWindow, main_class):
     
@@ -78,7 +74,7 @@ class SSSClass(QMainWindow, sss_class):
         
         self.btn_home.clicked.connect(self.btnHomeFunction)
         self.btn_reset.clicked.connect(self.btnResetFunction)
-        self.btn_plus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=1))   #매개변수있으면 lambda
+        self.btn_plus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=1))
         self.btn_minus.clicked.connect(lambda: self.btnPlusNMinusFunction(step=-1))
         self.dateEdit.dateChanged.connect(lambda: self.dateEditFunction(True))
         self.dateEdit.setDate(QDate.currentDate())
@@ -124,7 +120,6 @@ class SSSClass(QMainWindow, sss_class):
         y_c = np.cos(theta)
         for r in np.arange(2,18,2):
             ax.plot(r*x_c, r*y_c, color="gray")
-# =============================================================================
         (xs,ys)=self.ss.getXnY(yyyy=yyyy, mm=mm, dd=dd)         
         for x, y, path in zip(xs, ys, self.ss.getPaths()):
             ab = AnnotationBbox(getImage(path,self.ss.getZoom()), (x, y), frameon=False)
@@ -139,7 +134,6 @@ class SSSClass(QMainWindow, sss_class):
             event.accept()
         else:
             event.ignore()     
-# =============================================================================
             
 def getImage(path, zoom=1):
     return OffsetImage(plt.imread(path), zoom=zoom)

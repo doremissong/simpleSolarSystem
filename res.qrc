@@ -1,9 +1,0 @@
-<RCC>
-  <qresource prefix="file">
-    <file>skywithstarts2.png</file>
-    <file>skywithstarts1.png</file>
-    <file>buzz.png</file>
-    <file>skywithstarts.png</file>
-    <file>nightsky.png</file>
-  </qresource>
-</RCC>

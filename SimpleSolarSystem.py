@@ -21,7 +21,7 @@ class SimpleSolarSystem:
         self.planet_paths = ['image/sun.png','image/mercury.png', 'image/venus.png', 'image/earth.png', 'image/mars.png',
                  'image/jupiter.png', 'image/saturn.png', 'image/uranus.png', 'image/neptune.png']
 
-        self.zoom = 1/10  #image marker 비율
+        self.zoom = 1/10
         
         self.theta_earth = 360/365.2 
         self.dtime = date.today()
@@ -40,20 +40,20 @@ class SimpleSolarSystem:
     
     def setTime(self, yyyy=0,mm=0,dd=0,n=0):
         if yyyy==0:
-            self.dtime =date.today() + timedelta(days=n)    # dtime = date(2022,2,26)       #date.today() 
+            self.dtime =date.today() + timedelta(days=n)
         else:
             self.dtime = date(yyyy, mm, dd)
             
-        astro_time= Time(self.dtime.isoformat())    #Time.now()  # 날짜        #Time('2022-12-22')
-        dt = (self.dtime - date(self.dtime.year,3,22)).days   ##-- n계산 일수 계산
+        astro_time= Time(self.dtime.isoformat()) 
+        dt = (self.dtime - date(self.dtime.year,3,22)).days
         angle_earth = dt * self.getThetaEarth() #
         
         planet_coord = [get_body_heliographic_stonyhurst(this_planet, time=astro_time) for this_planet in self.getPlanetList(1)]
-        angle = [this_coord.lon for this_coord in planet_coord]  # 오늘, 지구 기준 좌표
+        angle = [this_coord.lon for this_coord in planet_coord] 
         return (angle_earth, angle)
     
     def getTime(self):
-        return dtime
+        return self.dtime
     
     def getXnY(self, yyyy=0,mm=0,dd=0,n=0):
         (angle_earth, angle) = self.setTime(yyyy, mm, dd, n)
@@ -102,31 +102,27 @@ Number of Moons : {int(info[10])}\n")
         return info_str
 
     
-def cos(alpha, beta):   # cos(x+y) = cos(x)cos(y)-sin(x)sin(y)
+def cos(alpha, beta):   
     return (np.cos(alpha)*np.cos(beta)-np.sin(alpha)*np.sin(beta))
-def sin(alpha, beta):   # sin(x+y)=sin(x)cos(y)+cos(x)sin(y)
+def sin(alpha, beta):  
     return (np.sin(alpha)*np.cos(beta)+np.cos(alpha)*np.sin(beta))
 
 
-# --------------------------------------------------------------------------------------------
 if __name__ == '__main__':
     ss = SimpleSolarSystem()
     (xs, ys) = ss.getXnY(n=0)
     
-    # CEHCK coordinates
-    coord = [[x, y] for x, y in zip(xs,ys)]
-    
-    #CHECK AND DRAW ORBIT AND PLANETS
     plt.figure(figsize=(5,5))
     a = np.linspace(0,2*np.pi, 1000)
     x_c = np.sin(a)
     y_c = np.cos(a)
     for r in np.arange(2,18,2):
-        plt.plot(r*x_c, r*y_c, color="gray")    # -- 궤도 그리기
+        plt.plot(r*x_c, r*y_c, color="gray")
     
     for this_planet, x,y in zip(ss.getPlanetList(), xs, ys):
-        plt.plot(x, y, 'o', label=this_planet) # 180은 춘분점이 180도에 오도록.
+        plt.plot(x, y, 'o', label=this_planet)
     plt.legend()
     plt.show()
     
+    print(ss.getTime())
     
